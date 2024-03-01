@@ -25,14 +25,19 @@
                             </template>
                             <div class="flex items-center gap-3 mb-3 justify-between">
                                 <label for="username" class="font-semibold w-28">Artist</label>
-                                <InputText id="username" autocomplete="off" />
+                                <InputText id="username" autocomplete="off" class="w-3/5" />
                             </div>
                             <div class="flex items-center gap-3 mb-3 justify-between">
                                 <label for="username" class="font-semibold">Album Name</label>
-                                <InputText id="username" autocomplete="off" />
+                                <InputText id="username" autocomplete="off" class="w-3/5" />
                             </div>
                             <div class="flex items-center gap-3 mb-3 justify-between">
-                                <label for="currency-us" class="font-semibold"> Price</label>
+                                <label for="username" class="font-semibold">Album Version</label>
+                                <Dropdown v-model="selectedAlbum" :options="albumVersion" optionLabel="name"
+                                    placeholder="Select Album Version" class="w-3/5" />
+                            </div>
+                            <div class="flex items-center mb-3 justify-between border">
+                                <label for="currency-us" class="font-semibold">Price</label>
                                 <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="KRW"
                                     locale="en-US" />
                             </div>
@@ -51,18 +56,27 @@
                                 <img class="rounded-md" src="../assets/seventeenth-heaven.png" alt="">
                             </div>
                             <div class="mt-4">
-                                <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
+                                <p>11th Mini Album</p>
+                                <p>'SEVENTEENTH HEAVEN'</p>
                                 <p class="font-bold mt-1">₩62,100</p>
                             </div>
                         </div>
                     </router-link>
                     <div class="bg-slate-200 p-4 rounded-xl">
-                        <div>
-                            <img class="rounded-md" src="../assets/fml.png" alt="">
-                        </div>
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/fml.png" alt="">
+                            </div>
+                        </router-link>
                         <div class="mt-4">
                             <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
                             <p class="font-bold mt-1">₩62,100</p>
+                        </div>
+                        <div>
+                            <div :style="{ position: 'relative'}">
+                                <SpeedDial class="hover:bg-red-100" :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
+                                <Toast />
+                            </div>
                         </div>
                     </div>
                     <div class="bg-slate-200 p-4 rounded-xl">
@@ -111,9 +125,43 @@ import Header from "@/components/Header.vue";
 import Dialog from 'primevue/dialog';
 import Avatar from "primevue/avatar";
 import InputText from 'primevue/inputtext';
+import SpeedDial from 'primevue/speeddial';
+import Dropdown from 'primevue/dropdown';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
+// import { useRouter } from 'vue-router';
+
+const toast = useToast();
+// const router = useRouter();
 
 const visible = ref(false);
 const value1 = ref(0);
+const selectedAlbum = ref();
+
+const albumVersion = ref([
+    { name: 'Single', code: 1 },
+    { name: 'Mini Album', code: '2' },
+    { name: 'Full Album', code: '2' },
+    { name: 'Repackaged Album', code: '2' },
+]);
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        style: { backgroundColor: 'red' },
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+        }
+    }
+])
 </script>
 
 <style scoped>

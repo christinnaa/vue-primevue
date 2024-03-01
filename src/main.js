@@ -18,6 +18,9 @@ import ToastService from 'primevue/toastservice';
 import Chip from 'primevue/chip';
 import OverlayPanel from 'primevue/overlaypanel';
 import Dialog from 'primevue/dialog';
+import Dropdown from 'primevue/dropdown';
+import FloatLabel from 'primevue/floatlabel';
+import SpeedDial from 'primevue/speeddial';
 
 const app = createApp(App)
 app.use(PrimeVue)
@@ -33,6 +36,9 @@ app.directive('Toast', Toast);
 app.directive('Chip', Chip);
 app.directive('OverlayPanel', OverlayPanel);
 app.directive('Dialog', Dialog);
+app.directive('Dropdown', Dropdown);
+app.directive('FloatLabel', FloatLabel);
+app.directive('SpeedDial', SpeedDial);
 app.use('Menu', Menu)
 app.mount('#app')
 app.use(ToastService);
