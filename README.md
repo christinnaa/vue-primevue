@@ -1,6 +1,6 @@
 # vue-primevue
 
-This template should help get you started developing with Vue 3 in Vite.
+Using Vue 3, Tailwind CSS and PrimeVue
 
 ## Recommended IDE Setup
 
