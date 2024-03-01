@@ -2,10 +2,6 @@
 
 An E-Commerce App created using Vue 3, Tailwind CSS and PrimeVue
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
 ## Project Setup
 
 ```sh
