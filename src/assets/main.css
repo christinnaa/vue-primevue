@@ -8,3 +8,25 @@
     @tailwind components;
     @tailwind utilities;
 }
+
+
+.p-speeddial-action {
+    background-color: #2dd4bf !important;
+    color: white;
+}
+
+.input {
+    width: 248px !important;
+}
+
+.p-paginator .p-component {
+    background-color: none !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background-color: #ccfbf1;
+}
+
+body {
+    overflow-x: hidden;
+}

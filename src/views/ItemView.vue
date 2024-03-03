@@ -39,7 +39,7 @@
                             <i class="pi pi-exclamation-circle px-2"></i>
                             <p>You can order up to 7 items.</p>
                         </div>
-                        <div class="flex justify-between mt-3">
+                        <div class="flex justify-between mt-3 px-2">
                             <p>Total ({{ numberValue }} items)</p>
                             <p class="font-bold">${{ calculatedTotal }}</p>
                         </div>

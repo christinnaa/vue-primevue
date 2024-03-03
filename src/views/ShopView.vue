@@ -1,4 +1,3 @@
-
 <template>
     <div class="w-screen bg-slate-100 flex">
         <div class="h-screen w-24 flex justify-end items-center bg-slate-100">
@@ -7,40 +6,55 @@
         <div class="grow flex-col px-8">
             <Header />
             <div class="container mx-auto">
-                <div class="flex flex-wrap gap-2 my-4">
-                    <Chip class="text-sm shadow-sm px-4 active-chip" label="ALL" />
-                    <Chip class="bg-neutral-200 text-sm shadow-sm px-4" label="SEVENTEEN" />
-                    <Chip class="bg-neutral-200 text-sm shadow-sm px-4" label="NCT DREAM" />
-                </div>
-                <div class="my-3 flex justify-end px-2">
+
+                <!-- <ConfirmDialog group="templating">
+                    <template #message="slotProps">
+                        <div
+                            class="flex flex-col items-center w-full gap-3 border-b border-surface-200 dark:border-surface-700">
+                            <i :class="slotProps.message.icon" class="text-6xl text-primary-500"></i>
+                            <p>{{ slotProps.message.message }}</p>
+                        </div>
+                    </template>
+</ConfirmDialog> -->
+                <div class="my-8 flex justify-between">
+                    <div class="hidden md:flex flex-wrap">
+                        <div class="flex flex-wrap gap-2">
+                            <BadgeTags v-for="(item, index) in chipData" :key="index" :label="item.label"
+                                :image="item.image" />
+                        </div>
+                    </div>
                     <div class="card flex justify-content-center">
+                        <!-- <div class="card flex justify-center">
+                            <Button @click="showTemplate()" icon="pi pi-check" label="Confirm"></Button>
+                        </div> -->
                         <Button class="text-sm px-3 py-2" label="Add Product" @click="visible = true" />
-                        <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '28rem' }">
+                        <Dialog v-model:visible="visible" modal header="Add Product" :style="{ width: '28rem' }">
+
                             <template #header>
                                 <div class="inline-flex align-items-center items-center gap-3">
-                                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
-                                        shape="circle" />
-                                    <span class="font-bold white-space-nowrap">Amy Elsner</span>
+                                    <Avatar class="bg-teal-300 text-white" icon="pi pi-plus" shape="circle" />
+                                    <span class="font-bold white-space-nowrap">Add Product</span>
                                 </div>
                             </template>
                             <div class="flex items-center gap-3 mb-3 justify-between">
                                 <label for="username" class="font-semibold w-28">Artist</label>
-                                <InputText id="username" autocomplete="off" class="w-3/5" />
+                                <InputText id="username" autocomplete="off" class="input" />
                             </div>
                             <div class="flex items-center gap-3 mb-3 justify-between">
                                 <label for="username" class="font-semibold">Album Name</label>
-                                <InputText id="username" autocomplete="off" class="w-3/5" />
+                                <InputText id="username" autocomplete="off" class="input" />
                             </div>
                             <div class="flex items-center gap-3 mb-3 justify-between">
                                 <label for="username" class="font-semibold">Album Version</label>
                                 <Dropdown v-model="selectedAlbum" :options="albumVersion" optionLabel="name"
-                                    placeholder="Select Album Version" class="w-3/5" />
+                                    placeholder="Select Album Version" class="input" />
                             </div>
-                            <div class="flex items-center mb-3 justify-between border">
+                            <div class="flex items-center mb-3 justify-between">
                                 <label for="currency-us" class="font-semibold">Price</label>
-                                <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="KRW"
-                                    locale="en-US" />
+                                <InputNumber class="input" v-model="value1" inputId="currency-us" mode="currency"
+                                    currency="USD" locale="en-US" />
                             </div>
+
                             <template #footer>
                                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
                                 <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
@@ -48,67 +62,152 @@
                         </Dialog>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-20">
                     <!-- Replace the following divs with your actual grid items -->
-                    <router-link to="/item">
-                        <div class="bg-slate-200 p-4 rounded-xl">
-                            <div class="bg-slate-50 hover:bg-sky-50 rounded-lg">
-                                <img class="rounded-md" src="../assets/seventeenth-heaven.png" alt="">
-                            </div>
-                            <div class="mt-4">
-                                <p>11th Mini Album</p>
-                                <p>'SEVENTEENTH HEAVEN'</p>
-                                <p class="font-bold mt-1">₩62,100</p>
-                            </div>
-                        </div>
-                    </router-link>
                     <div class="bg-slate-200 p-4 rounded-xl">
                         <router-link to="/item">
                             <div>
-                                <img class="rounded-md" src="../assets/fml.png" alt="">
+                                <img class="rounded-md" src="../assets/seventeenth-heaven.png" alt="" />
                             </div>
                         </router-link>
                         <div class="mt-4">
-                            <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
-                            <p class="font-bold mt-1">₩62,100</p>
+                            <p class="text-sm">11th Mini Album</p>
+                            <p class="font-semibold text-teal-900">'SEVENTEENTH HEAVEN'</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
-                        <div>
-                            <div :style="{ position: 'relative'}">
-                                <SpeedDial class="hover:bg-red-100" :model="items" direction="left" :style="{ top: 'calc(50% - 2rem)', right: 0 }" />
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$50.92</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
                                 <Toast />
                             </div>
                         </div>
                     </div>
                     <div class="bg-slate-200 p-4 rounded-xl">
-                        <div>
-                            <img class="rounded-md" src="../assets/istj.png" alt="">
-                        </div>
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/fml.png" alt="" />
+                            </div>
+                        </router-link>
                         <div class="mt-4">
-                            <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
-                            <p class="font-bold mt-1">₩62,100</p>
+                            <p class="text-sm">10th Mini Album</p>
+                            <p class="font-semibold text-teal-900">'FML'</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$15.82</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
                         </div>
                     </div>
                     <div class="bg-slate-200 p-4 rounded-xl">
-                        <div>
-                            <img class="rounded-md" src="../assets/candy-special.png" alt="">
-                        </div>
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/istj.png" alt="" />
+                            </div>
+                        </router-link>
                         <div class="mt-4">
-                            <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
-                            <p class="font-bold mt-1">₩62,100</p>
+                            <p class="text-sm">The 3rd Album</p>
+                            <p class="font-semibold text-teal-900">'ISTJ' Photobook Ver.</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$14.59</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
                         </div>
                     </div>
                     <div class="bg-slate-200 p-4 rounded-xl">
-                        <div>
-                            <img class="rounded-md" src="../assets/glitch-mode.png" alt="">
-                        </div>
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/candy-special.png" alt="" />
+                            </div>
+                        </router-link>
                         <div class="mt-4">
-                            <p>11th Mini Album 'SEVENTEENTH HEAVEN'</p>
-                            <p class="font-bold mt-1">₩62,100</p>
+                            <p class="text-sm">Winter Special Mini Album</p>
+                            <p class="font-semibold text-teal-900">'Candy' Special Ver.</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$18.20</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
                         </div>
                     </div>
+                    <div class="bg-slate-200 p-4 rounded-xl">
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/glitch-mode.png" alt="" />
+                            </div>
+                        </router-link>
+                        <div class="mt-4">
+                            <p class="text-sm">The 2nd Album</p>
+                            <p class="font-semibold text-teal-900">'Glitch Mode' Photobook Ver.</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$14.59</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-200 p-4 rounded-xl">
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/aespa.png" alt="" />
+                            </div>
+                        </router-link>
+                        <div class="mt-4">
+                            <p class="text-sm">The 4th Mini Album</p>
+                            <p class="font-semibold text-teal-900">'Drama' Giant Ver.</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$13.36</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-200 p-4 rounded-xl">
+                        <router-link to="/item">
+                            <div>
+                                <img class="rounded-md" src="../assets/ay-yo.png" alt="" />
+                            </div>
+                        </router-link>
+                        <div class="mt-4">
+                            <p class="text-sm">The 4th Album</p>
+                            <p class="font-semibold text-teal-900">'Ay-Yo' Digipack Ver.</p>
+                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+                        </div>
+                        <div class="flex my-2 justify-between items-end">
+                            <p class="font-bold text-lg mt-1">$9.67</p>
+                            <div :style="{ position: 'relative' }">
+                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
+                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
+                                <Toast />
+                            </div>
+                        </div>
+                    </div>
+                    <ProductCard />
                 </div>
-                <!-- <div class="card mt-5 border">
-                    <Paginator class="bg-slate-100" :rows="10" :totalRecords="5"></Paginator>
+                <!-- <div class="mt-5 ">
+                    <Paginator class="bg-slate-100" :rows="10" :totalRecords="30"></Paginator>
                 </div> -->
             </div>
         </div>
@@ -116,52 +215,93 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import Button from 'primevue/button';
-import InputNumber from 'primevue/inputnumber';
+import { ref, reactive } from "vue";
+import Button from "primevue/button";
+import InputNumber from "primevue/inputnumber";
 import Sidebar from "@/components/Sidebar.vue";
-import Chip from 'primevue/chip';
+import ChipTags from "../components/ChipTags.vue";
+import Paginator from 'primevue/paginator';
+import Chip from "primevue/chip";
 import Header from "@/components/Header.vue";
-import Dialog from 'primevue/dialog';
+import Dialog from "primevue/dialog";
 import Avatar from "primevue/avatar";
-import InputText from 'primevue/inputtext';
-import SpeedDial from 'primevue/speeddial';
-import Dropdown from 'primevue/dropdown';
-import Toast from 'primevue/toast';
-import { useToast } from 'primevue/usetoast';
+import InputText from "primevue/inputtext";
+import SpeedDial from "primevue/speeddial";
+import Dropdown from "primevue/dropdown";
+import Toast from "primevue/toast";
+import { useToast } from "primevue/usetoast";
 // import { useRouter } from 'vue-router';
+import ConfirmDialog from "primevue/confirmdialog";
+import { useConfirm } from "primevue/useconfirm";
+import BadgeTags from "../components/BadgeTags.vue";
+import ProductCard from "../components/ProductCard.vue"
+// import { useToast } from "primevue/usetoast";
 
-const toast = useToast();
+// const toast = useToast();
 // const router = useRouter();
 
 const visible = ref(false);
 const value1 = ref(0);
 const selectedAlbum = ref();
 
+const confirm = useConfirm();
+const toast = useToast();
+
 const albumVersion = ref([
-    { name: 'Single', code: 1 },
-    { name: 'Mini Album', code: '2' },
-    { name: 'Full Album', code: '2' },
-    { name: 'Repackaged Album', code: '2' },
+    { name: "Single", code: 1 },
+    { name: "Mini Album", code: "2" },
+    { name: "Full Album", code: "2" },
+    { name: "Repackaged Album", code: "2" },
+]);
+
+const chipData = reactive([
+    { label: 'ALL', image: 'https://weverseshop.io/weverseshop-touchicon.png' },
+    { label: 'SEVENTEEN', image: 'https://phinf.wevpstatic.net/MjAyMzA5MjBfMjky/MDAxNjk1MTM1NjgzMDc4.bgN1B4pIYMfOVchSm9mrkt-8L8yXyVWjjK8Xywaa7Cog.tTiSoucynyTjgCYgALOgAKPlIVzdMk6yTsn13TrXgaUg.JPEG/987421d1-0863-44d9-863b-ec3de74e43fe.jpeg' },
+    { label: 'NCT DREAM', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMTY1/MDAxNjkzMzE0ODA5MzM3.ZLPBUeYyXA3FrtnSy9BrLN83YGv4b3s7DjrR_NL5h6Yg.1PadKFkVgzYnleV5sgPpzgW-FAEJ2GELu_3lNVlkNgYg.JPEG/47901150629381342d52e19c4-8e02-4a25-8150-e9e070718a2f.jpg' },
+    { label: 'AESPA', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMjE5/MDAxNjkzMjk2MjM0NDY3.4Wdn1FTJejuTAMPDfDST1i22IcBQkD71UArxyN5_-uAg.-wh9II0XBvjUyb3kGXn0wLYWioLCytJMUspVJm8RfsYg.JPEG/52726795051369368c65020b-7245-4561-937f-05e266a1ab51.jpg' },
+    { label: 'NCT 127', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMjYy/MDAxNjkzMzE0MzEwODQz.g_SovYrDfZ8f8Bk4L7JotZZEmaEzMYVG-9NzU5c2UDQg.SG2yQIotYWhW_mjJAqW88UP5biEM0H_vHA-7mGEYfHkg.JPEG/47900652136539386658d20bc-82e0-4fb6-a98c-1bdd830419fb.jpg' }
 ]);
 
 const items = ref([
     {
-        label: 'Add',
-        icon: 'pi pi-pencil',
-        style: { backgroundColor: 'red' },
+        label: "Add",
+        icon: "pi pi-pencil",
+        style: { backgroundColor: "red" },
         command: () => {
-            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
-        }
+            toast.add({ severity: "info", summary: "Add", detail: "Data Added" });
+        },
     },
     {
-        label: 'Delete',
-        icon: 'pi pi-trash',
+        label: "Delete",
+        icon: "pi pi-trash",
         command: () => {
-            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
+            toast.add({
+                severity: "error",
+                summary: "Delete",
+                detail: "Data Deleted",
+            });
+        },
+    },
+]);
+
+const showTemplate = () => {
+    confirm.require({
+        group: 'templating',
+        header: 'Confirmation',
+        message: 'Please confirm to proceed moving forward.',
+        icon: 'pi pi-exclamation-circle',
+        acceptIcon: 'pi pi-check',
+        rejectIcon: 'pi pi-times',
+        rejectClass: 'p-button-sm',
+        acceptClass: 'p-button-outlined p-button-sm',
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
         }
-    }
-])
+    });
+};
 </script>
 
 <style scoped>

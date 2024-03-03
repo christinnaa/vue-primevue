@@ -1,6 +1,6 @@
 
 <template>
-    <div class="h-3/5 md:h-1/2 w-20 rounded-2xl bg-white flex flex-col items-center justify-center gap-5 sticky">
+    <div class="h-fit py-6 w-20 rounded-2xl bg-white flex flex-col items-center justify-center gap-5 sticky">
         <router-link to="/home">
             <Button :class="{ 'active': $route.path === '/home' }" v-tooltip="{
                 value: 'Home',
@@ -75,7 +75,7 @@
                 text: 'bg-primary-500 ml-1 text-sm'
             }
         }" icon="pi pi-cog" rounded outlined aria-label="Favorite" />
-        <router-link to="/">
+        <!-- <router-link to="/">
             <Button v-tooltip="{
                 value: 'Sign Out',
                 pt: {
@@ -87,7 +87,7 @@
                     text: 'bg-primary-500 ml-1 text-sm'
                 }
             }" icon="pi pi-sign-out" severity="danger" rounded outlined aria-label="Search" />
-        </router-link>
+        </router-link> -->
     </div>
 </template>
 

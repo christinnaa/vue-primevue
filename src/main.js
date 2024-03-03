@@ -21,6 +21,8 @@ import Dialog from 'primevue/dialog';
 import Dropdown from 'primevue/dropdown';
 import FloatLabel from 'primevue/floatlabel';
 import SpeedDial from 'primevue/speeddial';
+import ConfirmDialog from 'primevue/confirmdialog';
+import ConfirmationService from 'primevue/confirmationservice';
 
 const app = createApp(App)
 app.use(PrimeVue)
@@ -39,6 +41,8 @@ app.directive('Dialog', Dialog);
 app.directive('Dropdown', Dropdown);
 app.directive('FloatLabel', FloatLabel);
 app.directive('SpeedDial', SpeedDial);
+app.directive('ConfirmDialog', ConfirmDialog);
 app.use('Menu', Menu)
 app.mount('#app')
 app.use(ToastService);
+app.use(ConfirmationService);
