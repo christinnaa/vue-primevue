@@ -3,8 +3,10 @@ import { ref } from "vue";
 import SpeedDial from "primevue/speeddial";
 import Toast from "primevue/toast";
 import { useToast } from "primevue/usetoast";
-// const toast = useToast();
-// const router = useRouter();
+
+defineProps({
+    albumDetail: Object // Corrected prop name
+});
 
 const toast = useToast();
 
@@ -32,19 +34,20 @@ const items = ref([
 </script>
 
 <template>
-    <div class="bg-slate-200 p-4 rounded-xl">
+    <div class="bg-slate-200 p-4 rounded-xl albumDetail">
         <router-link to="/item">
             <div>
-                <img class="rounded-md" src="../assets/aespa.png" alt="" />
+                <!-- Corrected prop usage -->
+                <img :src="`${albumDetail.image}`" :alt="albumDetail.albumName" />
+                {{ albumDetail.image  }}
             </div>
         </router-link>
         <div class="mt-4">
-            <p class="text-sm">The 4th Mini Album</p>
-            <p class="font-semibold text-teal-900">'Drama' Giant Ver.</p>
-            <!-- <p class="font-bold mt-1">₩62,100</p> -->
+            <p class="text-sm">{{ albumDetail.albumVersion}}</p>
+            <p class="font-semibold text-teal-900">{{ albumDetail.albumName }}</p>
         </div>
         <div class="flex my-2 justify-between items-end">
-            <p class="font-bold text-lg mt-1">$13.36</p>
+            <p class="font-bold text-lg mt-1">{{ albumDetail.albumPrice }}</p>
             <div :style="{ position: 'relative' }">
                 <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items" direction="left"
                     :style="{ top: 'calc(50% - 32px)', right: 0 }" />

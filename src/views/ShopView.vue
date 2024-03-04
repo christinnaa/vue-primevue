@@ -6,7 +6,6 @@
         <div class="grow flex-col px-8">
             <Header />
             <div class="container mx-auto">
-
                 <!-- <ConfirmDialog group="templating">
                     <template #message="slotProps">
                         <div
@@ -15,7 +14,7 @@
                             <p>{{ slotProps.message.message }}</p>
                         </div>
                     </template>
-</ConfirmDialog> -->
+                </ConfirmDialog> -->
                 <div class="my-8 flex justify-between">
                     <div class="hidden md:flex flex-wrap">
                         <div class="flex flex-wrap gap-2">
@@ -63,7 +62,6 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-20">
-                    <!-- Replace the following divs with your actual grid items -->
                     <div class="bg-slate-200 p-4 rounded-xl">
                         <router-link to="/item">
                             <div>
@@ -73,7 +71,6 @@
                         <div class="mt-4">
                             <p class="text-sm">11th Mini Album</p>
                             <p class="font-semibold text-teal-900">'SEVENTEENTH HEAVEN'</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$50.92</p>
@@ -93,7 +90,6 @@
                         <div class="mt-4">
                             <p class="text-sm">10th Mini Album</p>
                             <p class="font-semibold text-teal-900">'FML'</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$15.82</p>
@@ -113,7 +109,6 @@
                         <div class="mt-4">
                             <p class="text-sm">The 3rd Album</p>
                             <p class="font-semibold text-teal-900">'ISTJ' Photobook Ver.</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$14.59</p>
@@ -133,7 +128,6 @@
                         <div class="mt-4">
                             <p class="text-sm">Winter Special Mini Album</p>
                             <p class="font-semibold text-teal-900">'Candy' Special Ver.</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$18.20</p>
@@ -153,7 +147,6 @@
                         <div class="mt-4">
                             <p class="text-sm">The 2nd Album</p>
                             <p class="font-semibold text-teal-900">'Glitch Mode' Photobook Ver.</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$14.59</p>
@@ -173,7 +166,6 @@
                         <div class="mt-4">
                             <p class="text-sm">The 4th Mini Album</p>
                             <p class="font-semibold text-teal-900">'Drama' Giant Ver.</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$13.36</p>
@@ -193,7 +185,6 @@
                         <div class="mt-4">
                             <p class="text-sm">The 4th Album</p>
                             <p class="font-semibold text-teal-900">'Ay-Yo' Digipack Ver.</p>
-                            <!-- <p class="font-bold mt-1">₩62,100</p> -->
                         </div>
                         <div class="flex my-2 justify-between items-end">
                             <p class="font-bold text-lg mt-1">$9.67</p>
@@ -204,11 +195,8 @@
                             </div>
                         </div>
                     </div>
-                    <ProductCard />
+                    <ProductCard v-for="(albumDetail, index) in albumDetails" :key="index" :albumDetail="albumDetail" />
                 </div>
-                <!-- <div class="mt-5 ">
-                    <Paginator class="bg-slate-100" :rows="10" :totalRecords="30"></Paginator>
-                </div> -->
             </div>
         </div>
     </div>
@@ -219,7 +207,6 @@ import { ref, reactive } from "vue";
 import Button from "primevue/button";
 import InputNumber from "primevue/inputnumber";
 import Sidebar from "@/components/Sidebar.vue";
-import ChipTags from "../components/ChipTags.vue";
 import Paginator from 'primevue/paginator';
 import Chip from "primevue/chip";
 import Header from "@/components/Header.vue";
@@ -234,7 +221,7 @@ import { useToast } from "primevue/usetoast";
 import ConfirmDialog from "primevue/confirmdialog";
 import { useConfirm } from "primevue/useconfirm";
 import BadgeTags from "../components/BadgeTags.vue";
-import ProductCard from "../components/ProductCard.vue"
+import ProductCard from "../components/ProductCard.vue";
 // import { useToast } from "primevue/usetoast";
 
 // const toast = useToast();
@@ -260,6 +247,27 @@ const chipData = reactive([
     { label: 'NCT DREAM', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMTY1/MDAxNjkzMzE0ODA5MzM3.ZLPBUeYyXA3FrtnSy9BrLN83YGv4b3s7DjrR_NL5h6Yg.1PadKFkVgzYnleV5sgPpzgW-FAEJ2GELu_3lNVlkNgYg.JPEG/47901150629381342d52e19c4-8e02-4a25-8150-e9e070718a2f.jpg' },
     { label: 'AESPA', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMjE5/MDAxNjkzMjk2MjM0NDY3.4Wdn1FTJejuTAMPDfDST1i22IcBQkD71UArxyN5_-uAg.-wh9II0XBvjUyb3kGXn0wLYWioLCytJMUspVJm8RfsYg.JPEG/52726795051369368c65020b-7245-4561-937f-05e266a1ab51.jpg' },
     { label: 'NCT 127', image: 'https://phinf.wevpstatic.net/MjAyMzA4MjlfMjYy/MDAxNjkzMzE0MzEwODQz.g_SovYrDfZ8f8Bk4L7JotZZEmaEzMYVG-9NzU5c2UDQg.SG2yQIotYWhW_mjJAqW88UP5biEM0H_vHA-7mGEYfHkg.JPEG/47900652136539386658d20bc-82e0-4fb6-a98c-1bdd830419fb.jpg' }
+]);
+
+const albumDetails = ref([
+    {
+        albumName: 'Seventeenth Heaven',
+        albumVersion: '11th Mini Album',
+        albumPrice: '$50.92',
+        image: '@/assets/seventeenth-heaven.png'
+    },
+    {
+        albumName: '\'Drama\' Giant Ver.',
+        albumVersion: 'The 4th Mini Album',
+        albumPrice: '$13.36',
+        image: 'aespa.png'
+    },
+    {
+        albumName: 'ISTJ Photobook Ver.',
+        albumVersion: 'The 3rd Album',
+        albumPrice: '$14.59',
+        image: 'aespa.png'
+    },
 ]);
 
 const items = ref([
