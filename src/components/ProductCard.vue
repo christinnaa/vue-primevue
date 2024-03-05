@@ -37,13 +37,11 @@ const items = ref([
     <div class="bg-slate-200 p-4 rounded-xl albumDetail">
         <router-link to="/item">
             <div>
-                <!-- Corrected prop usage -->
                 <img :src="`${albumDetail.image}`" :alt="albumDetail.albumName" />
-                {{ albumDetail.image  }}
             </div>
         </router-link>
         <div class="mt-4">
-            <p class="text-sm">{{ albumDetail.albumVersion}}</p>
+            <p class="text-sm">{{ albumDetail.albumVersion }}</p>
             <p class="font-semibold text-teal-900">{{ albumDetail.albumName }}</p>
         </div>
         <div class="flex my-2 justify-between items-end">

@@ -62,139 +62,6 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-20">
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/seventeenth-heaven.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">11th Mini Album</p>
-                            <p class="font-semibold text-teal-900">'SEVENTEENTH HEAVEN'</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$50.92</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/fml.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">10th Mini Album</p>
-                            <p class="font-semibold text-teal-900">'FML'</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$15.82</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/istj.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">The 3rd Album</p>
-                            <p class="font-semibold text-teal-900">'ISTJ' Photobook Ver.</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$14.59</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/candy-special.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">Winter Special Mini Album</p>
-                            <p class="font-semibold text-teal-900">'Candy' Special Ver.</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$18.20</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/glitch-mode.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">The 2nd Album</p>
-                            <p class="font-semibold text-teal-900">'Glitch Mode' Photobook Ver.</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$14.59</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/aespa.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">The 4th Mini Album</p>
-                            <p class="font-semibold text-teal-900">'Drama' Giant Ver.</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$13.36</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-slate-200 p-4 rounded-xl">
-                        <router-link to="/item">
-                            <div>
-                                <img class="rounded-md" src="../assets/ay-yo.png" alt="" />
-                            </div>
-                        </router-link>
-                        <div class="mt-4">
-                            <p class="text-sm">The 4th Album</p>
-                            <p class="font-semibold text-teal-900">'Ay-Yo' Digipack Ver.</p>
-                        </div>
-                        <div class="flex my-2 justify-between items-end">
-                            <p class="font-bold text-lg mt-1">$9.67</p>
-                            <div :style="{ position: 'relative' }">
-                                <SpeedDial showIcon="pi pi-ellipsis-h" hideIcon="pi pi-times" :model="items"
-                                    direction="left" :style="{ top: 'calc(50% - 32px)', right: 0 }" />
-                                <Toast />
-                            </div>
-                        </div>
-                    </div>
                     <ProductCard v-for="(albumDetail, index) in albumDetails" :key="index" :albumDetail="albumDetail" />
                 </div>
             </div>
@@ -251,22 +118,46 @@ const chipData = reactive([
 
 const albumDetails = ref([
     {
-        albumName: 'Seventeenth Heaven',
+        albumName: '\'Seventeenth Heaven\'',
         albumVersion: '11th Mini Album',
         albumPrice: '$50.92',
-        image: '@/assets/seventeenth-heaven.png'
+        image: '/src/assets/seventeenth-heaven.png'
     },
     {
         albumName: '\'Drama\' Giant Ver.',
         albumVersion: 'The 4th Mini Album',
         albumPrice: '$13.36',
-        image: 'aespa.png'
+        image: '/src/assets/aespa.png'
     },
     {
-        albumName: 'ISTJ Photobook Ver.',
+        albumName: '\'ISTJ\' Photobook Ver.',
         albumVersion: 'The 3rd Album',
         albumPrice: '$14.59',
-        image: 'aespa.png'
+        image: '/src/assets/istj.png'
+    },
+    {
+        albumName: '\'Candy\' Special Ver.',
+        albumVersion: 'Winter Special Mini Album',
+        albumPrice: '$18.20',
+        image: '/src/assets/candy-special.png'
+    },
+    {
+        albumName: '\'Glitch Mode\' Photobook Ver.',
+        albumVersion: 'Winter Special Mini Album',
+        albumPrice: '$14.59',
+        image: '/src/assets/glitch-mode.png'
+    },
+    {
+        albumName: '\'Ay-Yo\' Digipack Ver.',
+        albumVersion: 'The 4th Album',
+        albumPrice: '$9.67',
+        image: '/src/assets/ay-yo.png'
+    },
+    {
+        albumName: '\'FML\'',
+        albumVersion: '10th Mini Album',
+        albumPrice: '$15.82',
+        image: '/src/assets/fml.png'
     },
 ]);
 
