@@ -19,16 +19,10 @@
                         <p>Set</p>
                         <div class="mt-3 flex justify-between items-center pr-2">
                             <div>
-                                <button @click="decrement"
-                                    class="bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-tl-lg rounded-bl-lg">
-                                    -
-                                </button>
-                                <input type="number" v-model.number="numberValue"
-                                    class="appearance-none bg-white rounded-none py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-gray-500 w-14 text-center">
-                                <button @click="increment"
-                                    class="bg-gray-100 text-gray-700 font-bold py-2 px-4 rounded-tr-lg rounded-br-lg">
-                                    +
-                                </button>
+                                <InputNumber v-model="numberValue" inputId="horizontal-buttons" showButtons
+                                    buttonLayout="horizontal" :step="1" decrementButtonClass="p-button-danger"
+                                    incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" :min="0"
+                                    :max="7" decrementButtonIcon="pi pi-minus" />
                             </div>
                             <div>
                                 <p class="text-sm">${{ albumPrice }}</p>
@@ -81,18 +75,6 @@ const calculatedTotal = computed(() => {
     const total = numberValue.value * albumPrice.value;
     return total.toFixed(2);
 });
-
-const increment = () => {
-    if (numberValue.value < maxOrder) {
-        numberValue.value++;
-    }
-};
-
-const decrement = () => {
-    if (numberValue.value > minOrder) {
-        numberValue.value--;
-    }
-};
 
 </script>
 

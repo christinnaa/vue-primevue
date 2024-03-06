@@ -29,6 +29,19 @@
         </router-link>
         <router-link to="/shop">
             <Button :class="{ 'active': $route.path === '/shop' || $route.path === '/item' }" v-tooltip="{
+                value: 'Shop',
+                pt: {
+                    arrow: {
+                        style: {
+                            marginLeft: '6px',
+                        }
+                    },
+                    text: 'bg-primary-500 ml-1 text-sm'
+                }
+            }" icon="pi pi-th-large" rounded outlined aria-label="User" />
+        </router-link>
+        <router-link to="/cart">
+            <Button :class="{ 'active': $route.path === '/cart' || $route.path === '/cart' }" v-tooltip="{
                 value: 'Cart',
                 pt: {
                     arrow: {

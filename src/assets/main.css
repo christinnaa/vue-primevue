@@ -50,3 +50,14 @@ body::-webkit-scrollbar-thumb
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #ccfbf1;
 }
+
+.p-inputnumber-buttons-horizontal .p-inputnumber-input {
+    width: 48px;
+    text-align: center;
+}
+
+.p-inputnumber-buttons-horizontal .p-inputnumber-input:focus,
+.p-inputnumber-buttons-horizontal .p-inputnumber-input:active,
+.p-inputnumber-buttons-horizontal .p-inputnumber-input:hover {
+    outline: none !important;
+}
