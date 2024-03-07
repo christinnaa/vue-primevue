@@ -1,9 +1,9 @@
 <template>
     <div class="w-screen bg-slate-100 flex">
-        <div class="h-screen w-24 flex justify-end items-center bg-slate-100">
+        <div class="h-screen w-24 flex justify-end items-center bg-neutral-50">
             <Sidebar />
         </div>
-        <div class="grow flex-col px-8">
+        <div class="grow flex-col px-8 bg-neutral-50">
             <Header />
             <div class="container mx-auto mt-8 px-0 md:px-28">
                 <div class="flex justify-between">
@@ -17,14 +17,21 @@
                 <div class="mt-8">
                     <div class="flex justify-between items-center mb-5">
                         <div class="flex">
-                            <img class="w-28 rounded-sm" src="../assets/seventeenth-heaven.png" alt="">
-                            <div>
-                                <p class="px-4">11th Mini Album 'Seventeenth Heaven' (Set)</p>
+                            <img class="w-28 rounded-md" src="../assets/seventeenth-heaven.png" alt=""> 
+                            <div class="flex flex-col justify-between px-4">
+                                <p>11th Mini Album 'Seventeenth Heaven' (Set)</p>
+                                <div class="mb-2">
+                                    <InputNumber v-model="numberValue" inputId="horizontal-buttons" showButtons
+                                        buttonLayout="horizontal" :step="1" decrementButtonClass="p-button-danger"
+                                        incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" :min="0"
+                                        :max="7" decrementButtonIcon="pi pi-minus" />
+                                </div>
                             </div>
                         </div>
                         <div class="flex items-center">
                             <p class="px-3 font-bold text-md">$50.92</p>
-                            <Button icon="pi pi-times" class="hover:text-red-300" severity="secondary" text rounded aria-label="Cancel" />
+                            <Button icon="pi pi-times" class="hover:text-red-300" severity="secondary" text rounded
+                                aria-label="Cancel" />
                         </div>
                     </div>
                 </div>
@@ -65,6 +72,7 @@ const selectedAlbum = ref();
 
 const confirm = useConfirm();
 const toast = useToast();
+const numberValue = ref(1);
 
 const albumVersion = ref([
     { name: "Single", code: 1 },

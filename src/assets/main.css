@@ -54,10 +54,24 @@ body::-webkit-scrollbar-thumb
 .p-inputnumber-buttons-horizontal .p-inputnumber-input {
     width: 48px;
     text-align: center;
+    height: 30px;
 }
 
 .p-inputnumber-buttons-horizontal .p-inputnumber-input:focus,
 .p-inputnumber-buttons-horizontal .p-inputnumber-input:active,
 .p-inputnumber-buttons-horizontal .p-inputnumber-input:hover {
     outline: none !important;
+}
+
+.p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-up {
+    height: 30px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-inputnumber.p-inputnumber-buttons-horizontal .p-inputnumber-button.p-inputnumber-button-down {
+    height: 30px;
+    width: 34px;
 }

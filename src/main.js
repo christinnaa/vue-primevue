@@ -23,6 +23,8 @@ import FloatLabel from 'primevue/floatlabel';
 import SpeedDial from 'primevue/speeddial';
 import ConfirmDialog from 'primevue/confirmdialog';
 import ConfirmationService from 'primevue/confirmationservice';
+import Badge from 'primevue/badge';
+import BadgeDirective from 'primevue/badgedirective';
 
 const app = createApp(App)
 app.use(PrimeVue)
@@ -42,7 +44,9 @@ app.directive('Dropdown', Dropdown);
 app.directive('FloatLabel', FloatLabel);
 app.directive('SpeedDial', SpeedDial);
 app.directive('ConfirmDialog', ConfirmDialog);
+app.directive('badge', Badge);
 app.use('Menu', Menu)
 app.mount('#app')
 app.use(ToastService);
 app.use(ConfirmationService);
+app.directive('badge', BadgeDirective);
